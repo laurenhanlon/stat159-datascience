@@ -5,6 +5,7 @@
 To run these scripts the packages you will need to install are `ggplot2` and `stargazer`. To install these packages run the lines
 
 `install.packages('ggplot2')`
+
 `install.packages('stargazer')`
 
 ### Interacting with the scripts
