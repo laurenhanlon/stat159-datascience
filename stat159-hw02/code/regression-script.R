@@ -2,18 +2,14 @@ setwd("~/Desktop/Fall2016/stat159-datascience/stat159-hw02/code")
 getwd()
 
 # Getting the data
-setwd("../")
-setwd(paste(getwd(),"/data",sep=""))
-getwd()
-
-advertising <- read.table('Advertising.csv', header=TRUE, sep=',')
+advertising <- read.table('../data/Advertising.csv', header=TRUE, sep=',')
 
 # Linear regression
 reg = lm(Sales ~ TV, data=advertising)
-summary = summary(reg)
+reg_summary = summary(reg)
 
 # Scatterplot
-# install.packages('ggplot2') if you don't already have ggplot2
+# install.packages('ggplot2')
 library(ggplot2)
 scatterplot = (ggplot(data=advertising, aes(TV, Sales)) 
 + ggtitle('TV vs. Sales') 
@@ -23,16 +19,12 @@ scatterplot = (ggplot(data=advertising, aes(TV, Sales))
 scatterplot
 
 # Save scatterplot
-setwd("../")
-setwd(paste(getwd(),"/images",sep=""))
-getwd()
-
-pdf('scatterplot-tv-sales.pdf')
+pdf('../images/scatterplot-tv-sales.pdf')
 scatterplot
 dev.off()
 
-png('scatterplot-tv-sales.png')
+png('../images/scatterplot-tv-sales.png')
 scatterplot
 dev.off()
 
-capture.output(summary, scatterplot, file = "../data/regression.RData")
+save(reg_summary, scatterplot, file = "../data/regression.RData")
