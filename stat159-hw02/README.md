@@ -38,7 +38,7 @@ report/
 ### How to reproduce this project 
 
 1. Clone this github repository
-2. Within the directory ./stat159-hw02, in the command line type `make all`. This will download all the data, run the R scripts to create the images, save this data then use it within the Rmd file to produce the final report.
+2. Within the directory `./stat159-hw02`, in the command line type `make all`. This will download all the data, run the R scripts to create the images, save this data then use it within the Rmd file to produce the final report.
 
 ### Resources Used
 I used the data and followed the regresion analysis from _An Introduction to Statistical Learning_ by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani.
