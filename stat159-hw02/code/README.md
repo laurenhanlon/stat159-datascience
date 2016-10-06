@@ -2,11 +2,10 @@
 
 ### Packages 
 
-To run these scripts the only package you will need to install is `ggplot2`. To install this package simply uncomment the line
+To run these scripts the packages you will need to install are `ggplot2` and `stargazer`. To install these packages run the lines
 
 `install.packages('ggplot2')`
-
-or run this line within your own R window.
+`install.packages('stargazer')`
 
 ### Interacting with the scripts
 
