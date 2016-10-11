@@ -1,0 +1,6 @@
+load("/Users/laurenhanlon/Desktop/Fall2016/stat159-datascience/stat159-hw02/data/regression.RData")
+load("/Users/laurenhanlon/Desktop/Fall2016/stat159-datascience/stat159-hw02/data/regression.RData")
+summary
+sum
+summary
+scatterplot
