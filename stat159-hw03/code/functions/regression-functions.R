@@ -5,7 +5,7 @@ mr <- lm(Sales ~ TV + Newspaper + Radio, data=advertising)
 
 ## Regression Functions
 
-#' @title Residusummal Sum Squares
+#' @title Residual Sum Squares
 #' @param x = lm()
 #' @return RSS
 
