@@ -1,8 +1,9 @@
 # Getting the data
 
-advertising <- read.table('../../data/Advertising.csv', header=TRUE, sep=',')
+advertising_full <- read.table('../../data/Advertising.csv', header=TRUE, sep=',')
+advertising <- advertising_full[c('TV', 'Sales', 'Radio', 'Newspaper')]
 
-# Summary statistics for TV and Sales
+# Summary statistics
 s <- summary(advertising)
 
 # Histograms
@@ -32,19 +33,18 @@ dev.off()
 ## Scatterplot matrix
 #Scatterplot Matrices from the glus Package 
 library(gclus)
-dta <- advertising[c('TV', 'Sales', 'Radio', 'Newspaper')] # get data 
-dta.r <- abs(cor(dta)) # get correlations
-dta.col <- dmat.color(dta.r) # get colors
+advertising.r <- abs(cor(advertising)) # get correlations
+advertising.col <- dmat.color(advertising.r) # get colors
 # reorder variables so those with highest correlation
 # are closest to the diagonal
-dta.o <- order.single(dta.r) 
+advertising.o <- order.single(advertising.r) 
 png('../../images/scatterplot-matrix.png')
-cpairs(dta, dta.o, panel.colors=dta.col, gap=.7,
+cpairs(advertising, advertising.o, panel.colors=advertising.col, gap=.7,
        main="Scatterplot Matrix" )
 dev.off()
 
 ## Correlations
-c <- cor(dta, use='complete.obs', method='kendall')
+c <- cor(advertising, use='complete.obs', method='kendall')
 
 ## Save Outputs to txt file and RData file
 capture.output(s, c, file = "../../data/eda-output.txt")
