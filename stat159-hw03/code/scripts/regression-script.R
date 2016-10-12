@@ -1,9 +1,15 @@
 # Getting the data
 advertising <- read.table('../../data/Advertising.csv', header=TRUE, sep=',')
 
-# Linear regression
-reg = lm(Sales ~ TV, data=advertising)
-reg_summary = summary(reg)
+# Linear regressions
+reg1 = lm(Sales ~ TV, data=advertising)
+reg_summary_TV = summary(reg1)
+
+reg2 = lm(Sales ~ Radio, data=advertising)
+reg_summary_Radio = summary(reg2)
+
+reg3 = lm(Sales ~ Newspaper, data=advertising)
+reg_summary_Newspaper = summary(reg3)
 
 # Scatterplot
 # install.packages('ggplot2')
@@ -39,6 +45,7 @@ scatterplot_NewspaperxSales
 dev.off()
 
 
+## Save all to RData
 
-
-save(reg_summary, scatterplot, file = "../data/regression.RData")
+save(reg_summary_TV, reg_summary_Radio, reg_summary_Newspaper,
+     scatterplot_TVxSales, scatterplot_RadioxSales, scatterplot_NewspaperxSales, file = "../../data/regression.RData")
