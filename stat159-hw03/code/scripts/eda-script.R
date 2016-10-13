@@ -4,7 +4,7 @@ advertising_full <- read.table('../../data/Advertising.csv', header=TRUE, sep=',
 advertising <- advertising_full[c('TV', 'Sales', 'Radio', 'Newspaper')]
 
 # Summary statistics
-s <- summary(advertising)
+summary_advertising <- summary(advertising)
 
 # Histograms
 
@@ -44,8 +44,8 @@ cpairs(advertising, advertising.o, panel.colors=advertising.col, gap=.7,
 dev.off()
 
 ## Correlations
-c <- cor(advertising, use='complete.obs', method='kendall')
+correlation_matrix <- cor(advertising)
 
 ## Save Outputs to txt file and RData file
-capture.output(s, c, file = "../../data/eda-output.txt")
-save(c, file = "../../data/correlation-matrix.RData")
+capture.output(summary_advertising, correlation_matrix, file = "../../data/eda-output.txt")
+save(correlation_matrix, file = "../../data/correlation-matrix.RData")
