@@ -1,7 +1,3 @@
-advertising_full <- read.table('../../data/Advertising.csv', header=TRUE, sep=',')
-advertising <- advertising_full[c('TV', 'Sales', 'Radio', 'Newspaper')]
-mr <- lm(Sales ~ TV + Newspaper + Radio, data=advertising)
-#sales = β0 + β1 × TV + β2 × radio + β3 × newspaper + ε.
 
 ## Regression Functions
 
@@ -31,9 +27,8 @@ total_sum_squares <- function(x) {
 #' @return R^2
 
 r_squared <- function(x) {
-  y = residuals(x) + fitted(x)
-  TSS = sum((y - mean(y))^2)
-  RSS = sum(residuals(x)^2)
+  RSS = residual_sum_squares(x)
+  TSS = total_sum_squares(x)
   return(1 - RSS/TSS)
 }
 
@@ -50,11 +45,10 @@ r_squared <- function(x) {
 #' @return F-statistic
 
 f_statistic <- function(x) {
-  y = residuals(x)+fitted(x)
-  tss = sum((y-mean(y))^2)
-  rss = sum(residuals(x)^2)
+  RSS = residual_sum_squares(x)
+  TSS = total_sum_squares(x)
   p = length(coef(x)) - 1
-  return(((tss-rss) / p)/(rss / (x$df.residual - p + 1)))
+  return(((TSS-RSS) / p)/(RSS / (x$df.residual - p + 1)))
 }
 
 # Works for f_statistic(lm(Sales ~ TV, data=advertising)) = 312.145
@@ -66,7 +60,8 @@ f_statistic <- function(x) {
 #' @return RSE
 
 residual_std_error <- function(x) {
-  return(sqrt( sum(residuals(x)^2) / x$df.residual))
+  RSS = residual_sum_squares(x)
+  return(sqrt( RSS / x$df.residual))
 }
 
 # Works for residual_std_error(lm(Sales ~ TV, data=advertising)) = 3.258656
