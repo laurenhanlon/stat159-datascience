@@ -44,11 +44,6 @@ png('../../images/scatterplot-newspaper-sales.png')
 scatterplot_NewspaperxSales
 dev.off()
 
-## Save all to RData
-
-save(reg_summary_TV, reg_summary_Radio, reg_summary_Newspaper,
-     scatterplot_TVxSales, scatterplot_RadioxSales, scatterplot_NewspaperxSales, file = "../../data/regression.RData")
-
 ################################################
 ################################################
 ################################################
@@ -56,6 +51,7 @@ save(reg_summary_TV, reg_summary_Radio, reg_summary_Newspaper,
 ## Multivariate Linear Regression
 
 multiregression <- lm(Sales ~ TV + Newspaper + Radio, data=advertising)
+reg_summary_multi = summary(multiregression)
 
 ## Residual Plot
 png('../../images/residual-plot.png')
@@ -71,3 +67,13 @@ dev.off()
 png("../../images/normal-qq-plot.png")
 plot(multiregression, which=2)
 dev.off()
+
+################################################
+################################################
+################################################
+
+## Save all to RData
+
+save(reg_summary_TV, reg_summary_Radio, reg_summary_Newspaper,
+     scatterplot_TVxSales, scatterplot_RadioxSales, scatterplot_NewspaperxSales, 
+     reg_summary_multi, file = "../../data/regression.RData")
