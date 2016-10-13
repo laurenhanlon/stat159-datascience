@@ -6,7 +6,7 @@ Lauren Hanlon
 
 ## Goal
 
-My goal for this project was to conduct a simple analysis using the [Advertising.csv](http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv) dataset to look at sales across various products as a function of advertising budget, specifically for TV media spend.
+My goal for this project was to conduct a multivariable analysis using the [Advertising.csv](http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv) dataset to look at sales across various products as a function of advertising budget for TV, radio and newspaper media spend.
 
 ### File Structure
 
@@ -14,21 +14,34 @@ My goal for this project was to conduct a simple analysis using the [Advertising
 .gitignore
 README.md
 Makefile
+session-info.txt
 code/
  README.md
- eda-script.R
- regression-script.R
+ functions/
+  regression-functions.R
+ scripts/
+  eda-script.R
+  regression-script.R
+  session-info-script.R
+ tests/
+  test-regression.R
 data/
  README.md
  Advertising.csv
+ correlation-matrix.RData
  eda-output.txt
  regression.RData
 images/
- histogram-sales.pdf
+ histogram-newspaper.png
+ histogram-radio.png
  histogram-sales.png
- histogram-tv.pdf
  histogram-tv.png
- scatterplot-tv-sales.pdf
+ normal-qq-plot.png
+ residual-plot.png
+ scale-location.png
+ scatterplot-matrix.png
+ scatterplot-newspaper-sales.png
+ scatterplot-radio-sales.png
  scatterplot-tv-sales.png
 report/
  report.Rmd
