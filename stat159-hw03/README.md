@@ -14,6 +14,7 @@ My goal for this project was to conduct a multivariable analysis using the [Adve
 .gitignore
 README.md
 Makefile
+License
 session-info.txt
 code/
  README.md
@@ -55,3 +56,7 @@ report/
 
 ### Resources Used
 I used the data and followed the regresion analysis from _An Introduction to Statistical Learning_ by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani.
+
+### License
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.
