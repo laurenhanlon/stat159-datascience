@@ -1,18 +1,23 @@
-.PHONY: all clean data
+.PHONY: data tests eda regression report clean all
 
-all: report.pdf eda-output.txt regression.RData
+all: session_info eda regression report 
 
-report.pdf: ./report/report.Rmd ./data/regression.RData ./images/*.png
+report: ./report/report.Rmd ./data/regression.RData ./data/correlation-matrix.RData ./images/*.png
 	cd ./report; Rscript -e "rmarkdown::render('report.Rmd')"
 
-regression.RData: ./code/regression-script.R ./data/Advertising.csv
-	cd ./code; Rscript regression-script.R
+tests: ./code/functions/regression-functions.R ./code/tests/test-regression.R
+	cd ./code/tests; Rscript test-regression.R 
 
-eda-output.txt: ./code/eda-script.R ./data/Advertising.csv
-	cd ./code; Rscript eda-script.R
+regression: ./code/scripts/regression-script.R ./data/Advertising.csv
 
-Advertising.csv: 
+eda: ./code/scripts/eda-script.R ./data/Advertising.csv
+	cd ./code/scripts; Rscript eda-script.R
+
+data:
 	cd ./data; curl -O http://www-bcf.usc.edu/~gareth/ISL/Advertising.csv
+
+session_info: ./code/scripts/session-info-script.R
+	cd ./code/scripts; Rscript session-info-script.R
 
 clean:
 	rm -f report.pdf eda-output.txt regression.RData
