@@ -53,7 +53,7 @@ The Advertising data set is 200 x 5 in dimensions. There are 200 rows, each row 
 
 The table contains `sales` in thousands of units for a particular product as a function of advertising budgets (in thousands of dollars).
 
-## Methodology
+### Methodology
 
 ### Coefficient estimates of simple regression models
 
@@ -170,9 +170,28 @@ f_statistic(reg)
 We can see all of these results organized in the table below.
 
 ```{r results='asis', echo=FALSE}
-stargazer(reg)
+stargazer(reg, title='Summary of Multiple Regression Model')
 ```
 
 ## Results
 
-## Conslusions
+1. _Is at least one of the predicotrs useful in predicting the response?_
+
+> Because of our _F-statistic_ is so high, we can conclude that at least one of the predicotrs is useful in predicting the response.
+
+2. _Do all predictors help to explain the response, or is only a subset of the predictors useful?_
+
+> Looking at each of the predictors individually, we can see that they exude a positive correlation, which leads us to believe that all of them are useful in explaining the response. Looking at the data more closely, we found that there exists a very strong correlation between TV media spend and sales. With an estimate of 0.046 and a standard error of 0.001, we can conclude that TV is useful in explaining the response.
+
+3. _How well does the model fit the data?_
+
+> We look at the $R^2$ statistic to assess whether the model fits the data. The closer to 1 the $R^2$ is, the better job the model does at fitting the data. We saw an $R^2$ statistic of 0.897, which indicates that the model does an accurate job of fitting the data (but there are room for improvements:)
+
+4. _How accurate is the prediction?_
+
+> We can see the p-values associated with each variable in Table 6. We can see that TV and Radio have statistically strong p-values of less than 0.01, whereas newspaper gives us a p-value of 0.860, indicating that it is not an accurate predictor. Holding all variables constant we see a p-value of less than 0.01, which indicates that the model is accurate in it's prediction.
+
+
+## Conslusion
+
+In conclusion, we learned two things. The first is that James' _An Introduction to Statistical Learning_ is reproducible, since we were able to obtain all of the same results (yay!). The second is that when you're performing data analysis, it is important to look at all of the factors and their relations versus focusing on a subset of variables that are relevant to your particular project. For example, had we only looked at the relationship between newspaper and sales we might have incorrectly concluded that newspaper had a strong effect on sales. However, when you look at all the data in a multiple regression model, we were able to determine the right relationships between each of the predicotrs and the response.
