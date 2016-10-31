@@ -17,7 +17,7 @@ ui <- fluidPage(
 server <- function(input, output) {
   
   selectedData <- reactive({
-    Advertising[, c(input$xcol, "Sales")]
+    advertising[, c(input$xcol, "Sales")]
   })
   
   output$plot1 <- renderPlot({
