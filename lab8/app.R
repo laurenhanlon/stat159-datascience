@@ -1,7 +1,6 @@
-# Load Packages
 library(shiny)
 
-# Read in Advertising.csv
+# load data
 advertising <- read.csv("Advertising.csv")
 advertising <- advertising[,-1] #don't need index
 
