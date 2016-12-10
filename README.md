@@ -10,6 +10,8 @@ More information about the course can be found [here](http://gastonsanchez.com/s
 
 `stat159-fall2016-project2`: Predictive Modeling. GitHub repo can be found [here](https://github.com/mosmart/stat159-fall2016-project02). 
 
+`stat159-fall2016-project3`: Predictive Modeling: Recruiting Women in STEM. GitHub repo can be found [here](https://github.com/mosmart/stat159-fall2016-project3).
+
 ## Homework
 
 `stat159-hw02`: Simple Linear Regression
